@@ -46,7 +46,8 @@ cp .env.example .env
 `.env` variables:
 
 | Variable                     | Description                                                            | Default              |
-| ----------------------------- | ------------------------------------------------------------------------ | --------------------- |
+| ----------------------------- | 
+|--------------------- |
 | `PORT`                        | Port the API listens on                                                 | `3000`                |
 | `OPENAI_API_KEY`               | OpenAI API key (required)                                               | —                     |
 | `OPENAI_MODEL`                 | Chat Completion model used for the agent loop                           | `gpt-4o-mini`         |
@@ -70,7 +71,7 @@ On first startup, the app computes and caches embeddings for every product in
 
 Once running:
 
-- API base URL: `http://localhost:3000`
+- API base URL: `http://localhost:3001`
 - Swagger / OpenAPI docs: `http://localhost:3000/api/docs`
 
 ## API usage
@@ -98,7 +99,7 @@ Send a customer message and get the chatbot's final response.
 **cURL example:**
 
 ```bash
-curl -X POST http://localhost:3000/chat \
+curl -X POST http://localhost:3001/chat \
   -H "Content-Type: application/json" \
   -d "{\"message\": \"I am looking for a phone\"}"
 ```
@@ -108,11 +109,11 @@ curl -X POST http://localhost:3000/chat \
 These match the scenarios described in the assessment; try them one at a time against `POST /chat`:
 
 ```bash
-curl -X POST http://localhost:3000/chat -H "Content-Type: application/json" -d "{\"message\": \"I am looking for a phone\"}"
-curl -X POST http://localhost:3000/chat -H "Content-Type: application/json" -d "{\"message\": \"I am looking for a present for my dad\"}"
-curl -X POST http://localhost:3000/chat -H "Content-Type: application/json" -d "{\"message\": \"How much does a watch costs?\"}"
-curl -X POST http://localhost:3000/chat -H "Content-Type: application/json" -d "{\"message\": \"What is the price of the watch in Euros\"}"
-curl -X POST http://localhost:3000/chat -H "Content-Type: application/json" -d "{\"message\": \"How many Canadian Dollars are 350 Euros\"}"
+curl -X POST http://localhost:3001/chat -H "Content-Type: application/json" -d "{\"message\": \"I am looking for a phone\"}"
+curl -X POST http://localhost:3001/chat -H "Content-Type: application/json" -d "{\"message\": \"I am looking for a present for my dad\"}"
+curl -X POST http://localhost:3001/chat -H "Content-Type: application/json" -d "{\"message\": \"How much does a watch costs?\"}"
+curl -X POST http://localhost:3001/chat -H "Content-Type: application/json" -d "{\"message\": \"What is the price of the watch in Euros\"}"
+curl -X POST http://localhost:3001/chat -H "Content-Type: application/json" -d "{\"message\": \"How many Canadian Dollars are 350 Euros\"}"
 ```
 
 Since each request creates a fresh conversation, multi-step questions like "what is the price of
